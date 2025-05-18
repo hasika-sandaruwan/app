@@ -6,6 +6,7 @@ const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
 //============================
 const UserRoute = require('./route/UserRoute');
+const ProductRoute = require('./route/ProductRoute');
 //============================
 
 // parse application/x-www-form-urlencoded
@@ -27,3 +28,4 @@ app.get('/test-api', (req,resp)=>{
 });
 
 app.use('/api/v1/users', UserRoute);
+app.use('/api/v1/products', ProductRoute);
