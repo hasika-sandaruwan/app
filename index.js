@@ -4,6 +4,9 @@ const bodyParser = require('body-parser')
 require('dotenv').config();
 const app = express();
 const SERVER_PORT = process.env.SERVER_PORT || 3000;
+//============================
+const UserRoute = require('./route/UserRoute');
+//============================
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded())
@@ -22,7 +25,5 @@ try{
 app.get('/test-api', (req,resp)=>{
     return resp.json({'message':'Hi server is running...'});
 });
-app.post('/create', (req,resp)=>{
-    console.log(req.body)
-    return resp.json({'data':req.body});
-});
+
+app.use('/api/v1/users', UserRoute);
