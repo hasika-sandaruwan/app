@@ -56,3 +56,7 @@ const login = async (req, resp)=>{
         resp.status(500).json({'message':'try again', error:e});
     }
 }
+
+module.exports ={
+    register, login
+}
